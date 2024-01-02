@@ -1,4 +1,5 @@
 import * as dotenv from "dotenv";
+import { AppDataSource } from "./data.source";
 
 export abstract class ConfigServer {
     constructor() {
@@ -29,4 +30,7 @@ export abstract class ConfigServer {
         }
         return "." + arrEnv.join(".");
     }
+    get initConnect() {
+        return AppDataSource.initialize();
+      }
 }
